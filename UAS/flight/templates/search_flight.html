@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Flight</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Search Flight</h2>
+
+    <form action="/results/" method="get">
+        <label>Departure City</label>
+        <input type="text" name="origin" required placeholder="CGK">
+
+        <label>Arrival City</label>
+        <input type="text" name="destination" required placeholder="DPS">
+
+        <label>Departure Date</label>
+        <input type="date" name="departure_date" required>
+
+        <div id="returnDateContainer" style="display:none;">
+            <label>Return Date</label>
+            <input type="date" name="return_date">
+        </div>
+
+        <div class="checkbox-row">
+            <input type="checkbox" id="roundTrip" onclick="toggleReturn()">
+            <label for="roundTrip">Round Trip</label>
+        </div>
+
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<script>
+function toggleReturn() {
+    const box = document.getElementById("returnDateContainer");
+    box.style.display = box.style.display === "none" ? "block" : "none";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<div class="container" style="max-width:700px;">
+    <h2>Flight Results</h2>
+
+    {% if flights %}
+        {% for f in flights %}
+        <div class="card">
+            <div class="top-row">
+                <div>
+                    <h3>{{ f['validatingAirlineCodes'][0] }}</h3>
+                    <p>Duration: {{ f.itineraries.0.duration }}</p>
+                    <p>Segments: {{ f.itineraries.0.segments|length }}</p>
+                </div>
+                <div class="price">${{ f.price.total }}</div>
+            </div>
+
+            <a class="btn" href="/booking/{{ f.id }}/">Book</a>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No flights found.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

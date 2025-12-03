@@ -1,0 +1,148 @@
+/* ===== Global Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== Layout Basic ===== */
+body {
+    background: #f1f5f9;
+    padding: 20px;
+}
+
+.container {
+    max-width: 480px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px #00000015;
+}
+
+/* ===== Typography ===== */
+h2 {
+    margin-bottom: 20px;
+    color: #1e40af;
+}
+
+/* ===== Form Elements ===== */
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    margin-bottom: 15px;
+    transition: 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: #1d4ed8;
+    box-shadow: 0 0 4px #93c5fd;
+}
+
+/* --- FIX UNTUK CHECKBOX --- */
+
+/* 1. Pastikan input checkbox tidak memiliki lebar 100% dan margin bawah */
+input[type="checkbox"] {
+    width: auto; 
+    margin-bottom: 0;
+}
+
+/* 2. Style untuk Wrapper Checkbox (memastikan rata kiri) */
+.checkbox-wrapper {
+    display: flex;
+    justify-content: flex-start; /* Kunci: Memaksa elemen ke kiri */
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    padding-left: 3px; 
+}
+
+/* 3. Style untuk Label Checkbox (agar sejajar) */
+.checkbox-wrapper label {
+    margin-bottom: 0;
+}
+
+/* -------------------------- */
+
+
+/* ===== Buttons ===== */
+button, .btn {
+    width: 90%; 
+    max-width: 350px;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block; 
+    margin: 0 auto; 
+    text-align: center;
+    transition: 0.2s;
+}
+
+button:hover, .btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* ===== Card (Flight Results) ===== */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 10px #00000015;
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 14px #00000022;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+/* ===== Flight Info Box ===== */
+.flight-info {
+    background: #f1f5f9;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* ===== Success Box ===== */
+.success-box {
+    background: white;
+    max-width: 420px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px #00000020;
+    text-align: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+    .container {
+        padding: 18px;
+    }
+    .card {
+        padding: 16px;
+    }
+}
