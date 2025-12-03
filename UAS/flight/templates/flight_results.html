@@ -9,16 +9,45 @@
 <div class="container" style="max-width:700px;">
     <h2>Flight Results</h2>
 
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
     {% if flights %}
         {% for f in flights %}
         <div class="card">
+
             <div class="top-row">
                 <div>
-                    <h3>{{ f['validatingAirlineCodes'][0] }}</h3>
-                    <p>Duration: {{ f.itineraries.0.duration }}</p>
-                    <p>Segments: {{ f.itineraries.0.segments|length }}</p>
+                    <h2>{{ f.airline }}</h2>
+
+                    <p>
+                        <strong>{{ f.origin }}</strong>
+                        → 
+                        <strong>{{ f.destination }}</strong>
+                    </p>
+
+                    <p>
+                        Departure: {{ f.departure_time }}<br>
+                        Arrival: {{ f.arrival_time }}
+                    </p>
+
+                    <p>
+                        Duration: {{ f.duration }}
+                    </p>
+
+                    <p>
+                        {% if f.stops == 0 %}
+                            Direct Flight
+                        {% else %}
+                            {{ f.stops }} Stop(s)
+                        {% endif %}
+                    </p>
                 </div>
-                <div class="price">${{ f.price.total }}</div>
+
+                <div class="price">
+                    ${{ f.price }}
+                </div>
             </div>
 
             <a class="btn" href="/booking/{{ f.id }}/">Book</a>
@@ -27,6 +56,7 @@
     {% else %}
         <p>No flights found.</p>
     {% endif %}
+
 </div>
 
 </body>

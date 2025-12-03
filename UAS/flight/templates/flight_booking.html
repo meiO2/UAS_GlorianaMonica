@@ -9,10 +9,60 @@
 <div class="container">
     <h2>Flight Booking</h2>
 
-    <div class="flight-info">
-        <p><strong>Flight ID:</strong> {{ flight_id }}</p>
+    <!-- FLIGHT INFO BOX -->
+    <div class="info-grid">
+
+        <div class="row">
+            <span class="label">Flight ID</span>
+            <span class="colon">:</span>
+            <span class="value">{{ flight.id }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Airline</span>
+            <span class="colon">:</span>
+            <span class="value">{{ flight.airline }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Route</span>
+            <span class="colon">:</span>
+            <span class="value">{{ flight.origin }} → {{ flight.destination }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Departure</span>
+            <span class="colon">:</span>
+            <span class="value">{{ flight.departure_time }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Arrival</span>
+            <span class="colon">:</span>
+            <span class="value">{{ flight.arrival_time }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Duration</span>
+            <span class="colon">:</span>
+            <span class="value">{{ flight.duration }}</span>
+        </div>
+
+        <div class="row" style="margin-bottom: 25px;">   <!-- extra spacing before form -->
+            <span class="label">Price</span>
+            <span class="colon">:</span>
+            <span class="value">${{ flight.price }}</span>
+        </div>
+
     </div>
 
+
+    <!-- PASSENGER HEADING -->
+    <h3 style="margin-top: 10px; margin-bottom: 14px; color:#1e3a8a; font-size:20px; font-weight:700;">
+        Passenger Info
+    </h3>
+
+    <!-- BOOKING FORM -->
     <form method="post">
         {% csrf_token %}
 

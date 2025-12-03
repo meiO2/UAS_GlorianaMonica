@@ -42,7 +42,7 @@ input:focus, select:focus {
     box-shadow: 0 0 4px #93c5fd;
 }
 
-/* --- FIX UNTUK CHECKBOX --- */
+/* --- FIX UNTUK CHECKBOX DAN MARGIN --- */
 
 /* 1. Pastikan input checkbox tidak memiliki lebar 100% dan margin bawah */
 input[type="checkbox"] {
@@ -50,13 +50,14 @@ input[type="checkbox"] {
     margin-bottom: 0;
 }
 
-/* 2. Style untuk Wrapper Checkbox (memastikan rata kiri) */
+/* 2. Style untuk Wrapper Checkbox (memastikan rata kiri dan jarak bawah yang cukup) */
 .checkbox-wrapper {
     display: flex;
-    justify-content: flex-start; /* Kunci: Memaksa elemen ke kiri */
+    justify-content: flex-start;
     align-items: center;
     gap: 8px;
-    margin-bottom: 15px;
+    /* PENYESUAIAN: Tambah jarak ke bawah (dari button) */
+    margin-bottom: 25px; 
     padding-left: 3px; 
 }
 
@@ -65,7 +66,7 @@ input[type="checkbox"] {
     margin-bottom: 0;
 }
 
-/* -------------------------- */
+/* ------------------------------------ */
 
 
 /* ===== Buttons ===== */
@@ -81,7 +82,10 @@ button, .btn {
     cursor: pointer;
     text-decoration: none;
     display: block; 
-    margin: 0 auto; 
+    
+    /* PENYESUAIAN: Margin atas dan bawah 25px untuk memberi ruang */
+    margin: 25px auto; 
+    
     text-align: center;
     transition: 0.2s;
 }
@@ -145,4 +149,52 @@ button:hover, .btn:hover {
     .card {
         padding: 16px;
     }
+}
+
+.label {
+    font-weight: 600;
+    color: #475569;
+}
+
+.info-title {
+    margin-bottom: 15px;
+    color: #1e3a8a;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.info-row {
+    display: grid;
+    grid-template-columns: 140px auto; /* label width | value width */
+    margin-bottom: 6px;
+}
+
+.label {
+    font-weight: 600;
+    color: #475569;
+}
+
+.value {
+    color: #334155;
+}
+
+.info-grid .row {
+    display: grid;
+    grid-template-columns: 140px 10px auto; 
+    margin-bottom: 6px;
+}
+
+.label {
+    font-weight: 600;
+    color: #475569;
+}
+
+.colon {
+    text-align: center;
+    font-weight: 600;
+    color: #475569;
+}
+
+.value {
+    color: #334155;
 }
