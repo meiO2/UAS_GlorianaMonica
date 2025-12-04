@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Flight Results</title>
+    <title>Return Flights</title>
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
 
 <div class="container" style="max-width:700px;">
-    <h2>Flight Results</h2>
+    <h2>Select Return Flight</h2>
 
     {% if error %}
         <p style="color:red;">{{ error }}</p>
     {% endif %}
 
-    {% if departure_flights %}
-        <h3>Departure Flights</h3>
-        {% for f in departure_flights %}
+    {% if return_flights %}
+        <h3>Return Flights</h3>
+        {% for f in return_flights %}
         <div class="card">
 
             <div class="top-row">
@@ -51,15 +51,11 @@
                 </div>
             </div>
 
-            {% if is_round_trip %}
-                <a class="btn" href="/return/{{ f.id }}/">Select</a>
-            {% else %}
-                <a class="btn" href="/booking/{{ f.id }}/">Book</a>
-            {% endif %}
+            <a class="btn" href="/booking/{{ departure_flight_id }}/{{ f.id }}/">Select</a>
         </div>
         {% endfor %}
     {% else %}
-        <p>No flights found.</p>
+        <p>No return flights found.</p>
     {% endif %}
 
 </div>

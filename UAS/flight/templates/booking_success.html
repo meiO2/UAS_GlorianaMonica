@@ -25,45 +25,139 @@
 
         <hr style="margin: 18px 0; border: none; border-top: 1px solid #e2e8f0;">
 
-        <h3 style="margin-bottom: 15px; font-size:20px; color:#1e3a8a;">
-            Flight Info
-        </h3>
+        {% if departure_flight and return_flight %}
+            <!-- ROUND-TRIP FLIGHT INFO -->
+            <h3 style="margin-bottom: 15px; font-size:20px; color:#1e3a8a;">
+                Departure Flight
+            </h3>
 
-        <div class="row">
-            <span class="label">Airline</span>
-            <span class="colon">:</span>
-            <span class="value">{{ flight.airline }}</span>
-        </div>
+            <div class="row">
+                <span class="label">Airline</span>
+                <span class="colon">:</span>
+                <span class="value">{{ departure_flight.airline }}</span>
+            </div>
 
-        <div class="row">
-            <span class="label">Route</span>
-            <span class="colon">:</span>
-            <span class="value">{{ flight.origin }} → {{ flight.destination }}</span>
-        </div>
+            <div class="row">
+                <span class="label">Route</span>
+                <span class="colon">:</span>
+                <span class="value">{{ departure_flight.origin }} → {{ departure_flight.destination }}</span>
+            </div>
 
-        <div class="row">
-            <span class="label">Departure</span>
-            <span class="colon">:</span>
-            <span class="value">{{ flight.departure_time }}</span>
-        </div>
+            <div class="row">
+                <span class="label">Departure</span>
+                <span class="colon">:</span>
+                <span class="value">{{ departure_flight.departure_time }}</span>
+            </div>
 
-        <div class="row">
-            <span class="label">Arrival</span>
-            <span class="colon">:</span>
-            <span class="value">{{ flight.arrival_time }}</span>
-        </div>
+            <div class="row">
+                <span class="label">Arrival</span>
+                <span class="colon">:</span>
+                <span class="value">{{ departure_flight.arrival_time }}</span>
+            </div>
 
-        <div class="row">
-            <span class="label">Duration</span>
-            <span class="colon">:</span>
-            <span class="value">{{ flight.duration }}</span>
-        </div>
+            <div class="row">
+                <span class="label">Duration</span>
+                <span class="colon">:</span>
+                <span class="value">{{ departure_flight.duration }}</span>
+            </div>
 
-        <div class="row">
-            <span class="label">Price</span>
-            <span class="colon">:</span>
-            <span class="value">${{ flight.price }}</span>
-        </div>
+            <div class="row">
+                <span class="label">Price</span>
+                <span class="colon">:</span>
+                <span class="value">${{ departure_flight.price }}</span>
+            </div>
+
+            <hr style="margin: 18px 0; border: none; border-top: 1px solid #e2e8f0;">
+
+            <h3 style="margin-bottom: 15px; font-size:20px; color:#1e3a8a;">
+                Return Flight
+            </h3>
+
+            <div class="row">
+                <span class="label">Airline</span>
+                <span class="colon">:</span>
+                <span class="value">{{ return_flight.airline }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Route</span>
+                <span class="colon">:</span>
+                <span class="value">{{ return_flight.origin }} → {{ return_flight.destination }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Departure</span>
+                <span class="colon">:</span>
+                <span class="value">{{ return_flight.departure_time }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Arrival</span>
+                <span class="colon">:</span>
+                <span class="value">{{ return_flight.arrival_time }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Duration</span>
+                <span class="colon">:</span>
+                <span class="value">{{ return_flight.duration }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Price</span>
+                <span class="colon">:</span>
+                <span class="value">${{ return_flight.price }}</span>
+            </div>
+
+            <hr style="margin: 18px 0; border: none; border-top: 1px solid #e2e8f0;">
+
+            <div class="row">
+                <span class="label" style="font-weight: bold;">Total Price</span>
+                <span class="colon">:</span>
+                <span class="value" style="font-weight: bold;">${{ total_price }}</span>
+            </div>
+        {% else %}
+            <!-- ONE-WAY FLIGHT INFO -->
+            <h3 style="margin-bottom: 15px; font-size:20px; color:#1e3a8a;">
+                Flight Info
+            </h3>
+
+            <div class="row">
+                <span class="label">Airline</span>
+                <span class="colon">:</span>
+                <span class="value">{{ flight.airline }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Route</span>
+                <span class="colon">:</span>
+                <span class="value">{{ flight.origin }} → {{ flight.destination }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Departure</span>
+                <span class="colon">:</span>
+                <span class="value">{{ flight.departure_time }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Arrival</span>
+                <span class="colon">:</span>
+                <span class="value">{{ flight.arrival_time }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Duration</span>
+                <span class="colon">:</span>
+                <span class="value">{{ flight.duration }}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Price</span>
+                <span class="colon">:</span>
+                <span class="value">${{ flight.price }}</span>
+            </div>
+        {% endif %}
 
     </div>
 

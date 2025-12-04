@@ -17,11 +17,11 @@
         <input type="text" name="destination" required placeholder="DPS">
 
         <label>Departure Date</label>
-        <input type="date" name="departure_date" required>
+        <input type="date" name="departure_date" id="departure_date" required>
 
         <div id="returnDateContainer" style="display:none;">
             <label>Return Date</label>
-            <input type="date" name="return_date">
+            <input type="date" name="return_date" id="return_date">
         </div>
 
         <div class="checkbox-row">
@@ -38,6 +38,15 @@ function toggleReturn() {
     const box = document.getElementById("returnDateContainer");
     box.style.display = box.style.display === "none" ? "block" : "none";
 }
+
+document.getElementById("departure_date").addEventListener("change", function() {
+    const departureDate = this.value;
+    const returnDateInput = document.getElementById("return_date");
+    returnDateInput.min = departureDate;
+    if (returnDateInput.value && returnDateInput.value < departureDate) {
+        returnDateInput.value = "";
+    }
+});
 </script>
 
 </body>

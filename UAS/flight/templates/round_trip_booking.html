@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Round Trip Booking</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Round Trip Booking</h2>
+
+    <!-- DEPARTURE FLIGHT INFO BOX -->
+    <h3 style="margin-top: 10px; margin-bottom: 14px; color:#1e3a8a; font-size:20px; font-weight:700;">
+        Departure Flight
+    </h3>
+    <div class="info-grid">
+
+        <div class="row">
+            <span class="label">Flight ID</span>
+            <span class="colon">:</span>
+            <span class="value">{{ departure_flight.id }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Airline</span>
+            <span class="colon">:</span>
+            <span class="value">{{ departure_flight.airline }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Route</span>
+            <span class="colon">:</span>
+            <span class="value">{{ departure_flight.origin }} → {{ departure_flight.destination }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Departure</span>
+            <span class="colon">:</span>
+            <span class="value">{{ departure_flight.departure_time }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Arrival</span>
+            <span class="colon">:</span>
+            <span class="value">{{ departure_flight.arrival_time }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Duration</span>
+            <span class="colon">:</span>
+            <span class="value">{{ departure_flight.duration }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Price</span>
+            <span class="colon">:</span>
+            <span class="value">${{ departure_flight.price }}</span>
+        </div>
+
+    </div>
+
+    <!-- RETURN FLIGHT INFO BOX -->
+    <h3 style="margin-top: 25px; margin-bottom: 14px; color:#1e3a8a; font-size:20px; font-weight:700;">
+        Return Flight
+    </h3>
+    <div class="info-grid">
+
+        <div class="row">
+            <span class="label">Flight ID</span>
+            <span class="colon">:</span>
+            <span class="value">{{ return_flight.id }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Airline</span>
+            <span class="colon">:</span>
+            <span class="value">{{ return_flight.airline }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Route</span>
+            <span class="colon">:</span>
+            <span class="value">{{ return_flight.origin }} → {{ return_flight.destination }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Departure</span>
+            <span class="colon">:</span>
+            <span class="value">{{ return_flight.departure_time }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Arrival</span>
+            <span class="colon">:</span>
+            <span class="value">{{ return_flight.arrival_time }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Duration</span>
+            <span class="colon">:</span>
+            <span class="value">{{ return_flight.duration }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Price</span>
+            <span class="colon">:</span>
+            <span class="value">${{ return_flight.price }}</span>
+        </div>
+
+    </div>
+
+    <!-- TOTAL PRICE -->
+    <h3 style="margin-top: 25px; margin-bottom: 14px; color:#1e3a8a; font-size:20px; font-weight:700;">
+        Total Price: ${{ total_price }}
+    </h3>
+
+    <!-- PASSENGER HEADING -->
+    <h3 style="margin-top: 10px; margin-bottom: 14px; color:#1e3a8a; font-size:20px; font-weight:700;">
+        Passenger Info
+    </h3>
+
+    <!-- BOOKING FORM -->
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Full Name</label>
+        <input type="text" name="name" required>
+
+        <label>Passport Number</label>
+        <input type="text" name="passport" required>
+
+        <button type="submit">Confirm Booking</button>
+    </form>
+</div>
+
+</body>
+</html>
